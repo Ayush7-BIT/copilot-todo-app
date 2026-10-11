@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6ef">
+  <meta name="description" content="A calm, focused space to keep track of what matters today.">
+  <title>Daymark — Your tasks, in focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#main" aria-label="Daymark home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span>daymark</span>
+      </a>
+      <div class="today-label"><span class="today-dot" aria-hidden="true"></span><span id="today-date"></span></div>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">A LITTLE CLARITY GOES A LONG WAY</p>
+      <h1 id="page-title">Make room for<br><span>what matters.</span></h1>
+      <div class="intro-bottom">
+        <p class="intro-copy">Your day, at your pace. Start with one thing.</p>
+        <div class="completion-summary" aria-live="polite">
+          <div class="summary-copy"><span id="progress-label">Your progress</span><strong id="progress-count">0 of 0 done</strong></div>
+          <div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="task-section" id="main" aria-labelledby="list-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow section-kicker">THE TO-DO LIST</p>
+          <h2 id="list-title">Today <span class="task-total" id="task-total">0</span></h2>
+        </div>
+        <button class="clear-button" id="clear-completed" type="button" hidden>Clear completed</button>
+      </div>
+
+      <form class="task-form" id="task-form">
+        <label class="visually-hidden" for="task-input">Add a task</label>
+        <span class="input-plus" aria-hidden="true">+</span>
+        <input id="task-input" name="task" type="text" maxlength="180" placeholder="What needs your attention?" autocomplete="off" required>
+        <button class="add-button" type="submit"><span class="button-plus" aria-hidden="true">+</span><span>Add task</span></button>
+      </form>
+
+      <div class="list-toolbar">
+        <p class="list-caption" id="list-caption">A short list is a good place to start.</p>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span id="all-count">0</span></button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active <span id="active-count">0</span></button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done <span id="completed-count">0</span></button>
+        </div>
+      </div>
+
+      <ul class="task-list" id="task-list" aria-label="Tasks"></ul>
+      <div class="empty-state" id="empty-state" aria-live="polite">
+        <span class="empty-spark" aria-hidden="true">✳</span>
+        <p class="empty-title" id="empty-title">A clear page.</p>
+        <p class="empty-copy" id="empty-copy">Add a task when you’re ready. You’ve got this.</p>
+      </div>
+      <p class="visually-hidden" id="status-message" role="status" aria-live="polite"></p>
+    </section>
+
+    <footer class="footer"><span>One thing at a time.</span><span class="footer-line" aria-hidden="true"></span><span id="footer-date"></span></footer>
+  </main>
+</body>
+</html>
